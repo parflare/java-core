@@ -39,7 +39,7 @@ public class ReferenceTypesDemo {
         }
     }
 
-    private class Example {
+    private static class Example {
         int age;
 
         public Example(int age) {
