@@ -22,6 +22,7 @@ public class ReferenceTypesDemo {
         Boolean defBoolean;
         String defString;
         Example defExample;
+        Object defObject;
 
         void printDefaults() {
             System.out.println("\nDefault values of reference type fields: (all null)");
@@ -35,6 +36,7 @@ public class ReferenceTypesDemo {
             System.out.println("Boolean: " + defBoolean);
             System.out.println("String: " + defString);
             System.out.println("Example class: " + defExample);
+            System.out.println("Object: " + defObject);
 
         }
     }
