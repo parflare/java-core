@@ -21,6 +21,9 @@ public class PrimitiveTypesDemo {
 
         // Comparing
 
+        // Something
+        int a = 'C';
+        long b = 2147483648L; // remove L
 
     }
 
