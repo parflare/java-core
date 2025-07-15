@@ -20,7 +20,8 @@ public class PrimitiveTypesDemo {
         printOverflowExamples();
 
         // Implicit and explicit type casting
-
+        printTypeCastingExamples();
+        
         // Literals (integer, floating-point, character and string, using underscore characters in numeric)
 
         // Comparing
@@ -30,6 +31,46 @@ public class PrimitiveTypesDemo {
         long b = 2147483648L; // remove L
         float c = 12e-4f;
 
+    }
+
+    private static void printTypeCastingExamples() {
+        System.out.println("\nImplicit and explicit type casting");
+
+        // Implicit widening conversion (safe, no data loss)
+        byte byteVal = 42;
+        long longVal = byteVal; // byte → long
+        double doubleVal = longVal; // long → double
+
+        System.out.println("byte: " + byteVal);
+        System.out.println("byte → long: " + longVal);
+        System.out.println("long → double: " + doubleVal);
+
+        // Explicit narrowing conversion (requires cast, may lose data)
+        double originalDouble = 12345.6789;
+        float narrowedFloat = (float) originalDouble;
+        long narrowedLong = (long) narrowedFloat;
+        int narrowedInt = (int) narrowedLong;
+        short narrowedShort = (short) narrowedInt;
+        byte narrowedByte = (byte) narrowedShort;
+
+        System.out.println("\nOriginal double: " + originalDouble);
+        System.out.println("double → float: " + narrowedFloat);
+        System.out.println("float → long: " + narrowedLong);
+        System.out.println("long → int: " + narrowedInt);
+        System.out.println("int → short: " + narrowedShort);
+        System.out.println("short → byte: " + narrowedByte);
+
+        // Casting between char and int
+        char letter = 'A';
+        int letterCode = letter; // implicit
+        char recoveredChar = (char) letterCode; // explicit
+        System.out.println("\nchar → int: " + letterCode);
+        System.out.println("int → char: " + recoveredChar);
+
+        // Negative value to char (wraps to Unicode)
+        int negative = -1;
+        char wrappedChar = (char) negative;
+        System.out.println("int -1 → char: " + (int) wrappedChar + " (wrapped)");
     }
 
     private static void printBoxingExamples() {
