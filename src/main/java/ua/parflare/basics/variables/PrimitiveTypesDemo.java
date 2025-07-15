@@ -2,6 +2,7 @@ package main.java.ua.parflare.basics.variables;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 public class PrimitiveTypesDemo {
 
@@ -25,11 +26,52 @@ public class PrimitiveTypesDemo {
         // Literals (integer, floating-point, character and string, using underscore characters in numeric)
 
         // Comparing
-
+        printComparingExamples();
+        
         // Something
         long b = 2147483648L; // remove L
         float c = 12e-4f;
+    }
 
+    private static void printComparingExamples() {
+        System.out.println("\nComparing Wrapper Objects");
+
+        // Comparison using '==' (reference equality)
+        Integer a = 127;
+        Integer b = 127;
+        Integer c = 128;
+        Integer d = 128;
+
+        System.out.println("Integer 127 == Integer 127: " + (a == b)); // true — same cached object
+        System.out.println("Integer 128 == Integer 128: " + (c == d)); // false — distinct objects
+
+        // TIP: Integer values from -128 to 127 are cached by the JVM,
+        // so autoboxing returns the same object reference within that range.
+
+        // Value-based comparison (should always be preferred)
+        System.out.println("Equals comparing 1128 & 128: " + c.equals(d)); // true
+
+        // Compare primitive and boxed
+        int primitive = 127;
+        Integer boxed = 127;
+        System.out.println("int 127 == Integer 127: " + (primitive == boxed)); // true — unboxed automatically
+
+        // Null-safe comparison
+        Integer x = null;
+        System.out.println("Null-safe equals: " + Objects.equals(x, 10)); // false, no exception
+
+        // compareTo example (numeric comparison)
+        Integer n1 = 10;
+        Integer n2 = 20;
+        System.out.println("n1.compareTo(n2): " + n1.compareTo(n2)); // -1
+
+        // Comparison with different boxed types
+        Double doubleValue = 10.0;
+        System.out.println("n1.equals(doubleValue): " + n1.equals(doubleValue)); // false — different classes
+
+        // == between boxed and primitive of different types
+        double primitiveDouble = 10.0;
+        System.out.println("n1 == primitiveDouble: " + (n1 == primitiveDouble)); // true — unboxed and promoted
     }
 
     private static void printTypeCastingExamples() {
@@ -93,18 +135,6 @@ public class PrimitiveTypesDemo {
         List<Integer> intList = new ArrayList<>();
         intList.add(100); // autoboxing
         System.out.println("Value from List<Integer>: " + intList.get(0)); // unboxing if used as int
-
-        // Comparison between boxed and primitive
-        Integer a = 127;
-        Integer b = 127;
-        Integer c = 128;
-        Integer d = 128;
-
-        System.out.println("Integer 128 equals Integer 128: " + c.equals(d));
-
-        System.out.println("Integer 127 == Integer 127: " + (a == b)); // true, cached
-        // TIP: Java caches Integer objects in the range from -128 to 127 inclusive.
-        System.out.println("Integer 128 == Integer 128: " + (c == d)); // false, different objects
 
         // Unboxing null will throw a NullPointerException
         Integer nullValue = null;
