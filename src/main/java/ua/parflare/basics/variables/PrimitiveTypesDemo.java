@@ -24,13 +24,64 @@ public class PrimitiveTypesDemo {
         printTypeCastingExamples();
         
         // Literals (integer, floating-point, character and string, using underscore characters in numeric)
-
+        printLiteralsExamples();
+        
         // Comparing
         printComparingExamples();
         
         // Something
         long b = 2147483648L; // remove L
         float c = 12e-4f;
+    }
+
+    private static void printLiteralsExamples() {
+        System.out.println("\nJava literals examples");
+
+        // Integer literals
+        int decimal = 42;           // decimal literal
+        int binary = 0b101010;      // binary literal (Java 7+)
+        int octal = 052;            // octal literal (leading zero)
+        int hex = 0x2A;             // hexadecimal literal
+
+        System.out.println("Decimal literal: " + decimal);
+        System.out.println("Binary literal (0b101010): " + binary);
+        System.out.println("Octal literal (052): " + octal);
+        System.out.println("Hexadecimal literal (0x2A): " + hex);
+
+        // Floating-point literals
+        float floatLiteral = 3.14f;         // suffix 'f' or 'F' for float
+        double doubleLiteral = 2.71828;     // default is double
+        double scientific = 1.23e3;         // exponential notation
+
+        System.out.println("\nFloat literal: " + floatLiteral);
+        System.out.println("Double literal: " + doubleLiteral);
+        System.out.println("Scientific notation: " + scientific);
+
+        // Character literals
+        char charLiteral = 'A';
+        char unicodeChar = '\u0041';        // Unicode escape for 'A'
+        char specialChar = '\n';            // special character (newline)
+
+        System.out.println("\nCharacter literal: " + charLiteral);
+        System.out.println("Unicode character (\\u0041): " + unicodeChar);
+        System.out.println("Special character (newline): [" + specialChar + "]");
+
+        // String literal
+        String stringLiteral = "Hello, world!";
+        System.out.println("\nString literal: " + stringLiteral);
+
+        // Underscores in numeric literals (Java 7+)
+        int readableInt = 1_000_000;
+        long readableLong = 9_876_543_210L;
+        double readableDouble = 3.1415_9265;
+
+        System.out.println("\nUnderscores in int: " + readableInt);
+        System.out.println("Underscores in long: " + readableLong);
+        System.out.println("Underscores in double: " + readableDouble);
+
+        // Invalid uses (won’t compile)
+        // int invalid = _100;         // underscore at beginning — not allowed
+        // int invalid2 = 100_;        // underscore at end — not allowed
     }
 
     private static void printComparingExamples() {
