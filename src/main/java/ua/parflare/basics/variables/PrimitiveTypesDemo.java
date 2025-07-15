@@ -24,6 +24,7 @@ public class PrimitiveTypesDemo {
         // Something
         int a = 'C';
         long b = 2147483648L; // remove L
+        float c = 12e-4f;
 
     }
 
