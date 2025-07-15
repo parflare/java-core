@@ -1,5 +1,8 @@
 package main.java.ua.parflare.basics.variables;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class PrimitiveTypesDemo {
 
     public static void main(String[] args) {
@@ -11,6 +14,7 @@ public class PrimitiveTypesDemo {
         new DefaultValues().printDefaults();
 
         // Boxing / Unboxing
+        printBoxingExamples();
 
         // Value overflow
         printOverflowExamples();
@@ -25,6 +29,67 @@ public class PrimitiveTypesDemo {
         int a = 'C';
         long b = 2147483648L; // remove L
         float c = 12e-4f;
+
+    }
+
+    private static void printBoxingExamples() {
+        System.out.println("\nBoxing / Unboxing examples");
+
+        // Autoboxing
+        int primitiveInt = 10;
+        Integer boxedInt = primitiveInt; // autoboxing
+        System.out.println("Autoboxing: int → Integer = " + boxedInt);
+
+        // Unboxing
+        Integer anotherBoxed = Integer.valueOf(20);
+        int unboxedInt = anotherBoxed; // unboxing
+        System.out.println("Unboxing: Integer → int = " + unboxedInt);
+
+        // Explicit boxing
+        Double boxedDouble = Double.valueOf(3.14);
+        System.out.println("Explicit boxing: double → Double = " + boxedDouble);
+
+        // Using boxed types in collections
+        List<Integer> intList = new ArrayList<>();
+        intList.add(100); // autoboxing
+        System.out.println("Value from List<Integer>: " + intList.get(0)); // unboxing if used as int
+
+        // Comparison between boxed and primitive
+        Integer a = 127;
+        Integer b = 127;
+        Integer c = 128;
+        Integer d = 128;
+
+        System.out.println("Integer 128 equals Integer 128: " + c.equals(d));
+
+        System.out.println("Integer 127 == Integer 127: " + (a == b)); // true, cached
+        // TIP: Java caches Integer objects in the range from -128 to 127 inclusive.
+        System.out.println("Integer 128 == Integer 128: " + (c == d)); // false, different objects
+
+        // Unboxing null will throw a NullPointerException
+        Integer nullValue = null;
+        try {
+            int x = nullValue; // unboxing null → NullPointerException
+        } catch (NullPointerException ex) {
+            System.out.println("Unboxing null Integer causes: " + ex);
+        }
+
+        // Performance comparison: primitive vs boxing
+        long start1 = System.nanoTime();
+        int sum1 = 0;
+        for (int i = 0; i < 1_000_000; i++) {
+            sum1 += i;
+        }
+        long end1 = System.nanoTime();
+        System.out.println("Time without boxing: " + (end1 - start1) / 1_000_000 + " ms");
+
+        long start = System.nanoTime();
+        Integer sum = 0;
+        for (int i = 0; i < 1_000_000; i++) {
+            sum += i; // involves boxing/unboxing on each iteration
+        }
+        long end = System.nanoTime();
+        System.out.println("Time with boxing: " + (end - start) / 1_000_000 + " ms");
 
     }
 
