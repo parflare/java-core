@@ -32,6 +32,8 @@ public class PrimitiveTypesDemo {
         // Something
         long b = 2147483648L; // remove L
         float c = 12e-4f;
+        System.out.println(Integer.toString(42, 6)); // any radix (numeral system)
+
     }
 
     private static void printLiteralsExamples() {
