@@ -1,5 +1,7 @@
 package main.java.ua.parflare.basics.variables;
 
+import java.util.Arrays;
+
 public class ReferenceTypesDemo {
 
     public static void main(String[] args) {
@@ -9,6 +11,15 @@ public class ReferenceTypesDemo {
         // Default values
         new DefaultValues().printDefaults();
 
+        // Comparing
+        printComparingExamples();
+    }
+
+    private static void printComparingExamples() {
+        String a = new String("Java");
+        String b = new String("Java");
+        System.out.println("a == b: " + (a == b));             // false
+        System.out.println("a.equals(b): " + a.equals(b));     // true
     }
 
     static class DefaultValues {
@@ -53,10 +64,12 @@ public class ReferenceTypesDemo {
         String text = "Hello, Java!";
         Integer number = 100;  // wrapper class
         Double decimal = 99.99;
+        int[] numbers = {1, 2, 3};
 
         System.out.println("String: " + text);
         System.out.println("Integer object: " + number);
         System.out.println("Double object: " + decimal);
+        System.out.println("Array: " + Arrays.toString(numbers));
 
         // String methods example
         System.out.println("Length of text: " + text.length());
@@ -65,6 +78,12 @@ public class ReferenceTypesDemo {
         // Null example
         String nullString = null;
         System.out.println("Null string: " + nullString);
+
+        try {
+            System.out.println(nullString.length());
+        } catch (NullPointerException e) {
+            System.out.println("Caught NullPointerException on null reference");
+        }
     }
 
 }
