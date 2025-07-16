@@ -13,6 +13,19 @@ public class ReferenceTypesDemo {
 
         // Comparing
         printComparingExamples();
+        
+        // Passing objects to a method
+        printReferenceBehavior();
+    }
+
+    private static void printReferenceBehavior() {
+        Example example = new Example(15);
+        modify(example);
+        System.out.println("Modified age: " + example.age); // 25
+    }
+
+    static void modify(Example ex) {
+        ex.age += 10;
     }
 
     private static void printComparingExamples() {
