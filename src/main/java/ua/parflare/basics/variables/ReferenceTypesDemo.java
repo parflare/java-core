@@ -19,6 +19,8 @@ public class ReferenceTypesDemo {
     }
 
     private static void printReferenceBehavior() {
+        System.out.println("\nPassing object references to a method");
+
         Example example = new Example(15);
         modify(example);
         System.out.println("Modified age: " + example.age); // 25
@@ -29,6 +31,8 @@ public class ReferenceTypesDemo {
     }
 
     private static void printComparingExamples() {
+        System.out.println("\nObject comparison: == vs equals()");
+
         String a = new String("Java");
         String b = new String("Java");
         System.out.println("a == b: " + (a == b));             // false
@@ -74,6 +78,8 @@ public class ReferenceTypesDemo {
     }
 
     private static void printTypes() {
+        System.out.println("\nReference type variable examples");
+
         String text = "Hello, Java!";
         Integer number = 100;  // wrapper class
         Double decimal = 99.99;
