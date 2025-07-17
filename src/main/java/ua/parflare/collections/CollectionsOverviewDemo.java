@@ -69,11 +69,24 @@ public class CollectionsOverviewDemo {
         arrayList.addAll(Arrays.asList("grape", "melon")); // add multiple elements at once
 
         System.out.println("ArrayList: " + arrayList);
-        System.out.println("ArrayList (reversed): " + arrayList.reversed());
         System.out.println("Size: " + arrayList.size());
         System.out.println("Contains 'banana'? " + arrayList.contains("banana"));
         System.out.println("Index of 'apple': " + arrayList.indexOf("apple")); // returns first match
         System.out.println("Element at index 2: " + arrayList.get(2));
+
+        System.out.println("ArrayList (reversed): " + arrayList.reversed());
+        Collections.sort(arrayList); // sort alphabetically
+        System.out.println("Sorted ArrayList: " + arrayList);
+
+        // Sort ArrayList by string length in descending order
+        ArrayList<String> tmpArr = new ArrayList<>(arrayList);
+        tmpArr.sort((s1, s2) -> Integer.compare(s2.length(), s1.length()));
+        System.out.println("ArrayList sorted by length (desc): " + tmpArr);
+
+        // Sort LinkedList by string length in descending order
+        arrayList.sort(Comparator.comparingInt(String::length).reversed());
+        System.out.println("ArrayList sorted by length (desc): " + arrayList);
+
         arrayList.remove("banana"); // remove by value
         arrayList.remove(0);        // remove by index
         System.out.println("ArrayList after removals: " + arrayList);
@@ -86,7 +99,7 @@ public class CollectionsOverviewDemo {
 
         linkedList.addFirst("first"); // add at beginning
         linkedList.addLast("last");   // add at end
-        System.out.println("\nLinkedList: " + linkedList);
+        System.out.println("LinkedList: " + linkedList);
         System.out.println("First element: " + linkedList.getFirst());
         System.out.println("Last element: " + linkedList.getLast());
         System.out.println("Contains 'dog'? " + linkedList.contains("dog"));
