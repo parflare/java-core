@@ -59,12 +59,39 @@ public class CollectionsOverviewDemo {
         System.out.println("List examples:");
 
         // ArrayList: resizable array, maintains insertion order, allows duplicates
-        List<String> arrayList = new ArrayList<>(Arrays.asList("apple", "banana", "apple"));
-        System.out.println("ArrayList (allows duplicates, ordered): " + arrayList);
+        ArrayList<String> arrayList = new ArrayList<>(10); // initial capacity = 10
+        arrayList.add("apple");
+        arrayList.add("banana");
+        arrayList.add("apple"); // duplicate element
+        arrayList.add("orange");
 
-        // LinkedList: list optimized for fast insertions/removals anywhere
-        LinkedList<String> linkedList = new LinkedList<>(Arrays.asList("dog", "cat", "mouse"));
-        linkedList.addFirst("wolf");
-        System.out.println("LinkedList (fast insert/remove): " + linkedList);
+        arrayList.trimToSize(); // reduce capacity to match current size
+        arrayList.addAll(Arrays.asList("grape", "melon")); // add multiple elements at once
+
+        System.out.println("ArrayList: " + arrayList);
+        System.out.println("ArrayList (reversed): " + arrayList.reversed());
+        System.out.println("Size: " + arrayList.size());
+        System.out.println("Contains 'banana'? " + arrayList.contains("banana"));
+        System.out.println("Index of 'apple': " + arrayList.indexOf("apple")); // returns first match
+        System.out.println("Element at index 2: " + arrayList.get(2));
+        arrayList.remove("banana"); // remove by value
+        arrayList.remove(0);        // remove by index
+        System.out.println("ArrayList after removals: " + arrayList);
+
+        // LinkedList: doubly linked list, efficient inserts/removals at both ends
+        LinkedList<String> linkedList = new LinkedList<>();
+        linkedList.add("cat");
+        linkedList.add("dog");
+        linkedList.add("mouse");
+
+        linkedList.addFirst("first"); // add at beginning
+        linkedList.addLast("last");   // add at end
+        System.out.println("\nLinkedList: " + linkedList);
+        System.out.println("First element: " + linkedList.getFirst());
+        System.out.println("Last element: " + linkedList.getLast());
+        System.out.println("Contains 'dog'? " + linkedList.contains("dog"));
+        linkedList.removeFirst(); // remove from beginning
+        linkedList.removeLast();  // remove from end
+        System.out.println("LinkedList after removals: " + linkedList);
     }
 }
