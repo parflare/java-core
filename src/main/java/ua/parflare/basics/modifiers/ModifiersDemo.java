@@ -20,7 +20,8 @@ package main.java.ua.parflare.basics.modifiers;
  * <ul>
  *   <li><b>final</b> — class cannot be subclassed;</li>
  *   <li><b>abstract</b> — class cannot be instantiated directly; requires subclassing;</li>
- *   <li><b>strictfp</b> — enforces consistent floating-point calculations across platforms (rarely used).</li>
+ *   <li><b>strictfp</b> — enforces strict IEEE 754 compliance for floating-point calculations across platforms;
+ *       rarely affects behavior on modern JVMs, but useful for portability.</li>
  * </ul>
  *
  * <h4>For Methods:</h4>
@@ -30,7 +31,8 @@ package main.java.ua.parflare.basics.modifiers;
  *   <li><b>static</b> — method belongs to the class rather than an instance;</li>
  *   <li><b>synchronized</b> — method can be accessed by only one thread at a time (thread-safety);</li>
  *   <li><b>native</b> — method implemented in another language such as C/C++ (JNI);</li>
- *   <li><b>strictfp</b> — restricts floating-point calculations (same as for classes).</li>
+ *   <li><b>strictfp</b> — applies strict IEEE 754 rules to floating-point calculations in this method;
+ *       typically has no visible effect on most modern systems.</li>
  * </ul>
  *
  * <h4>For Variables:</h4>
