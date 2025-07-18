@@ -62,7 +62,7 @@ public class ModifiersDemo {
     private volatile boolean flag = false;
 
     /**
-     * Transient example for serialization
+     * Transient example for serialization (serialization not include this var now)
      */
     private transient String temporaryData;
 
