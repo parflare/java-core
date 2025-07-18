@@ -22,13 +22,13 @@ public class PrimitiveTypesDemo {
 
         // Implicit and explicit type casting
         printTypeCastingExamples();
-        
+
         // Literals (integer, floating-point, character and string, using underscore characters in numeric)
         printLiteralsExamples();
-        
+
         // Comparing
         printComparingExamples();
-        
+
         // Something
         long b = 2147483648L; // remove L
         float c = 12e-4f;

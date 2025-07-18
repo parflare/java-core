@@ -46,18 +46,16 @@ package main.java.ua.parflare.basics.modifiers;
 public class ModifiersDemo {
 
     /**
+     * Final and static modifiers examples
+     */
+    public static final double PI = 3.1415926535; // constant shared by all instances
+    /**
      * Access modifier examples
      */
     public int publicField;          // accessible everywhere
     protected int protectedField;    // accessible within package and subclasses
     int packagePrivateField;          // accessible only within package
     private int privateField;        // accessible only within this class
-
-    /**
-     * Final and static modifiers examples
-     */
-    public static final double PI = 3.1415926535; // constant shared by all instances
-
     /**
      * Volatile example for multithreading
      */
@@ -69,17 +67,17 @@ public class ModifiersDemo {
     private transient String temporaryData;
 
     /**
-     * Final method cannot be overridden by subclasses
-     */
-    public final void finalMethod() {
-        System.out.println("This final method cannot be overridden.");
-    }
-
-    /**
      * Static method belongs to class, not instance
      */
     public static void staticMethod() {
         System.out.println("Static method called.");
+    }
+
+    /**
+     * Final method cannot be overridden by subclasses
+     */
+    public final void finalMethod() {
+        System.out.println("This final method cannot be overridden.");
     }
 
     /**
